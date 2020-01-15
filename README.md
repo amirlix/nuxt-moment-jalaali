@@ -1,12 +1,10 @@
-# @nuxtjs/moment
+# Nuxt Moment Jalaali
 
 [![npm version][npm-version-src]][npm-version-href]
 [![npm downloads][npm-downloads-src]][npm-downloads-href]
-[![Circle CI][circle-ci-src]][circle-ci-href]
-[![Codecov][codecov-src]][codecov-href]
 [![License][license-src]][license-href]
 
-> Efficient Moment.js integration for Nuxt.js
+> Efficient Moment Jalaali integration for Nuxt.js
 
 [📖 **Release Notes**](./CHANGELOG.md)
 
@@ -14,25 +12,28 @@
 
 - Remove unused Moment.js locales using [moment-locales-webpack-plugin](https://github.com/iamakulov/moment-locales-webpack-plugin) for much less bundle size.
 - Inject `$moment` to the context everywhere.
+- Support [moment-timezone](https://momentjs.com/timezone/). you can filter time zone data and thus produce significant savings in file size with [moment-timezone-data-webpack-plugin](https://github.com/gilmoreorless/moment-timezone-data-webpack-plugin)
 
 ## Setup
 
-1. Add `@nuxtjs/moment` dependency to your project
+1. Add `nuxt-moment-jalaali` dependency to your project
 
 ```bash
-yarn add --dev @nuxtjs/moment # or npm install --save-dev @nuxtjs/moment
+yarn add --dev nuxt-moment-jalaali
+# or 
+npm install --save-dev nuxt-moment-jalaali
 ```
 
-2. Add `@nuxtjs/moment` to the `buildModules` section of `nuxt.config.js`
+2. Add `nuxt-moment-jalaali` to the `buildModules` section of `nuxt.config.js`
 
 ```js
 export default {
   buildModules: [
     // Simple usage
-    '@nuxtjs/moment',
+    'nuxt-moment-jalaali',
 
     // With options
-    ['@nuxtjs/moment', { /* module options */ }]
+    ['nuxt-moment-jalaali', { /* module options */ }]
   ]
 }
 ```
@@ -44,7 +45,7 @@ export default {
 ```js
 export default {
   buildModules: [
-    '@nuxtjs/moment'
+    'nuxt-moment-jalaali'
   ],
   moment: {
     /* module options */
@@ -65,7 +66,7 @@ Add the types to your `"types"` array in `tsconfig.json` after the `@nuxt/types`
   "compilerOptions": {
     "types": [
       "@nuxt/types",
-      "@nuxtjs/moment"
+      "nuxt-moment-jalaali"
     ]
   }
 }
@@ -73,7 +74,7 @@ Add the types to your `"types"` array in `tsconfig.json` after the `@nuxt/types`
 
 > **Why?**
 >
-> For typescript to be aware of the additions to the `nuxt Context`, the `vue instance` and the `vuex store`, the types need to be merged via [declaration merging](https://www.typescriptlang.org/docs/handbook/declaration-merging.html) by adding `@nuxtjs/moment` to your types.
+> For typescript to be aware of the additions to the `nuxt Context`, the `vue instance` and the `vuex store`, the types need to be merged via [declaration merging](https://www.typescriptlang.org/docs/handbook/declaration-merging.html) by adding `nuxt-moment-jalaali` to your types.
 
 ## Configuration
 
@@ -82,7 +83,7 @@ To strip all locales except `en`:
 ```js
 export default {
   buildModules: [
-    '@nuxtjs/moment'
+    'nuxt-moment-jalaali'
   ]
 }
 ```
@@ -92,10 +93,10 @@ To strip all locales except `en`, `fr` and `fa`:
 ```js
 export default {
   buildModules: [
-    '@nuxtjs/moment'
+    'nuxt-moment-jalaali'
   ],
   moment: {
-    locales: ['fa']
+    locales: ['fa', 'fr']
   }
 }
 ```
@@ -110,11 +111,11 @@ int the locales you keep (or `'en'`) and will only work when using the plugin op
 ```js
 export default {
   buildModules: [
-    '@nuxtjs/moment'
+    'nuxt-moment-jalaali'
   ],
   moment: {
-    defaultLocale: 'de',
-    locales: ['de']
+    defaultLocale: 'fa',
+    locales: ['fa']
   }
 }
 ```
@@ -126,7 +127,7 @@ You can import plugins to moment. See a list of [plugins](https://momentjs.com/d
 ```js
 export default {
   buildModules: [
-    '@nuxtjs/moment'
+    'nuxt-moment-jalaali'
   ],
   moment: {
     plugins: [
@@ -137,6 +138,7 @@ export default {
 }
 ```
 
+**Note:** Don't need import Jalaali Calendar to plugin.  
 **Note:** Don't forget to install each plugin.
 
 ### Timezone
@@ -146,7 +148,7 @@ You can enable [moment-timezone](https://momentjs.com/timezone/) via the `timezo
 ```js
 export default {
   buildModules: [
-    '@nuxtjs/moment'
+    'nuxt-moment-jalaali'
   ],
   moment: {
     timezone: true
@@ -160,11 +162,11 @@ See all options in [moment-timezone-data-webpack-plugin](https://github.com/gilm
 ```js
 export default {
   buildModules: [
-    '@nuxtjs/moment'
+    'nuxt-moment-jalaali'
   ],
   moment: {
     timezone: {
-      matchZones: /Europe\/(Belfast|London|Paris|Athens)/,
+      matchZones: ['Iran'],
       startYear: 2000,
       endYear: 2030
     }
@@ -179,7 +181,7 @@ This module also registers a plugin to include all needed locales as well as inj
 ```js
 export default {
   buildModules: [
-    '@nuxtjs/moment'
+    'nuxt-moment-jalaali'
   ],
   moment: {
     plugin: false
@@ -194,6 +196,7 @@ Instead of a filter, you can easily use `$moment` service from templates (and ye
 ```html
 <div v-text="$moment(...)"></div>
 <div>{{ $moment(...) }}</div>
+<div>{{ $moment(...).format('jYYYY/jM/jDD') }}</div>
 ```
 
 ## License
@@ -203,17 +206,11 @@ Instead of a filter, you can easily use `$moment` service from templates (and ye
 Copyright (c) Nuxt Community
 
 <!-- Badges -->
-[npm-version-src]: https://img.shields.io/npm/v/@nuxtjs/moment/latest.svg?style=flat-square
-[npm-version-href]: https://npmjs.com/package/@nuxtjs/moment
+[npm-version-src]: https://img.shields.io/npm/v/nuxt-moment-jalaali/latest.svg?style=flat-square
+[npm-version-href]: https://www.npmjs.com/package/nuxt-moment-jalaali
 
-[npm-downloads-src]: https://img.shields.io/npm/dt/@nuxtjs/moment.svg?style=flat-square
-[npm-downloads-href]: https://npmjs.com/package/@nuxtjs/moment
+[npm-downloads-src]: https://img.shields.io/npm/dt/nuxt-moment-jalaali.svg?style=flat-square
+[npm-downloads-href]: https://www.npmjs.com/package/nuxt-moment-jalaali
 
-[circle-ci-src]: https://img.shields.io/circleci/project/github/nuxt-community/moment-module.svg?style=flat-square
-[circle-ci-href]: https://circleci.com/gh/nuxt-community/moment-module
-
-[codecov-src]: https://img.shields.io/codecov/c/github/nuxt-community/moment-module.svg?style=flat-square
-[codecov-href]: https://codecov.io/gh/nuxt-community/moment-module
-
-[license-src]: https://img.shields.io/npm/l/@nuxtjs/moment.svg?style=flat-square
-[license-href]: https://npmjs.com/package/@nuxtjs/moment
+[license-src]: https://img.shields.io/npm/l/nuxt-moment-jalaali.svg?style=flat-square
+[license-href]: https://www.npmjs.com/package/nuxt-moment-jalaali

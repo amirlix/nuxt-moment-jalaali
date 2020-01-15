@@ -1,10 +1,11 @@
 {
-  "name": "@nuxtjs/moment",
-  "version": "1.5.0",
-  "description": "Efficient Moment.js integration for Nuxt.js",
+  "name": "nuxt-moment-jalaali",
+  "version": "1.4.2",
+  "description": "Efficient Moment Jalaali integration for Nuxt.js",
   "repository": "nuxt-community/moment-module",
   "license": "MIT",
   "contributors": [
+    "Amir Mohamadi <me@amirmoh.ir>",
     "Pooya Parsa <pooya@pi0.ir>",
     "Alexander Lichter <manniL@gmx.net>",
     "Ricardo Gobbo de Souza <ricardogobbosouza@yahoo.com.br>"
@@ -22,6 +23,7 @@
   },
   "dependencies": {
     "moment": "^2.24.0",
+    "moment-jalaali": "^0.9.1",
     "moment-locales-webpack-plugin": "^1.1.2",
     "moment-timezone": "^0.5.27",
     "moment-timezone-data-webpack-plugin": "^1.1.0"
