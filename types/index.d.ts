@@ -1,4 +1,4 @@
-import moment from 'moment'
+import moment from 'moment-jalaali'
 import Vue from 'vue'
 
 declare module '@nuxt/vue-app' {
@@ -25,4 +25,4 @@ declare module 'vuex/types/index' {
     $moment: typeof moment
   }
 }
-  
+
