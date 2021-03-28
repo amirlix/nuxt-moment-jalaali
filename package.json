@@ -2,7 +2,7 @@
   "name": "@nuxtjs/moment",
   "version": "1.6.1",
   "description": "Efficient Moment.js integration for Nuxt.js",
-  "repository": "nuxt-community/moment-module",
+  "repository": "amirlix/nuxt-moment-jalaali",
   "license": "MIT",
   "contributors": [
     "Amir Mohamadi <me@amirmoh.ir>",
