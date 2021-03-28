@@ -2,9 +2,11 @@
 
 [![npm version][npm-version-src]][npm-version-href]
 [![npm downloads][npm-downloads-src]][npm-downloads-href]
+[![Github Actions CI][github-actions-ci-src]][github-actions-ci-href]
+[![Codecov][codecov-src]][codecov-href]
 [![License][license-src]][license-href]
 
-> Efficient Moment Jalaali integration for Nuxt.js
+> Efficient Moment.js Jalaali integration for Nuxt.js
 
 [📖 **Release Notes**](./CHANGELOG.md)
 
@@ -12,7 +14,6 @@
 
 - Remove unused Moment.js locales using [moment-locales-webpack-plugin](https://github.com/iamakulov/moment-locales-webpack-plugin) for much less bundle size.
 - Inject `$moment` to the context everywhere.
-- Support [moment-timezone](https://momentjs.com/timezone/). you can filter time zone data and thus produce significant savings in file size with [moment-timezone-data-webpack-plugin](https://github.com/gilmoreorless/moment-timezone-data-webpack-plugin)
 
 ## Setup
 
@@ -174,6 +175,21 @@ export default {
 }
 ```
 
+### Set default time zone
+
+You can set a [default time zone](https://momentjs.com/timezone/docs/#/using-timezones/default-timezone/) via the `defaultTimezone` option.
+
+```js
+export default {
+  buildModules: [
+    '@nuxtjs/moment'
+  ],
+  moment: {
+    defaultTimezone: 'Asia/Tehran'
+  }
+}
+```
+
 ### Disable plugin
 
 This module also registers a plugin to include all needed locales as well as injecting moment as `$moment` to Vue context. You can disable this behaviour using `plugin: false`.
@@ -191,7 +207,7 @@ export default {
 
 ### Using inside templates
 
-Instead of a filter, you can easily use `$moment` service from templates (and yes, it is reactive!).
+You can easily use `$moment` service from templates.
 
 ```html
 <div v-text="$moment(...)"></div>

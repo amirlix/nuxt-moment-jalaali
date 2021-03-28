@@ -1,8 +1,8 @@
 {
   "name": "nuxt-moment-jalaali",
-  "version": "1.4.2",
-  "description": "Efficient Moment Jalaali integration for Nuxt.js",
-  "repository": "Amir-Mohamadi/nuxt-moment-jalaali",
+  "version": "1.6.1",
+  "description": "Efficient Moment.js Jalaali integration for Nuxt.js",
+  "repository": "nuxt-community/moment-module",
   "license": "MIT",
   "contributors": [
     "Amir Mohamadi <me@amirmoh.ir>",
@@ -10,30 +10,28 @@
     "Alexander Lichter <manniL@gmx.net>",
     "Ricardo Gobbo de Souza <ricardogobbosouza@yahoo.com.br>"
   ],
+  "main": "lib/module.js",
+  "types": "types/index.d.ts",
   "files": [
     "lib",
     "types/*.d.ts"
   ],
-  "main": "lib/module.js",
-  "types": "types/index.d.ts",
   "scripts": {
     "lint": "eslint --ext .js,.vue .",
     "release": "yarn test && standard-version && git push --follow-tags && npm publish",
     "test": "yarn lint && jest"
   },
   "dependencies": {
-    "moment": "^2.24.0",
-    "moment-jalaali": "^0.9.1",
-    "moment-locales-webpack-plugin": "^1.1.2",
-    "moment-timezone": "^0.5.27",
-    "moment-timezone-data-webpack-plugin": "^1.1.0"
+    "moment": "^2.25.3",
+    "moment-locales-webpack-plugin": "^1.2.0",
+    "moment-timezone": "^0.5.31",
+    "moment-timezone-data-webpack-plugin": "^1.3.0"
   },
   "devDependencies": {
     "@commitlint/cli": "latest",
     "@commitlint/config-conventional": "latest",
     "@nuxtjs/eslint-config": "latest",
     "@nuxtjs/module-test-utils": "latest",
-    "codecov": "latest",
     "eslint": "latest",
     "husky": "latest",
     "jest": "latest",

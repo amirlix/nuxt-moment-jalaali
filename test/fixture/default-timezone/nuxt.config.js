@@ -4,9 +4,6 @@ module.exports = {
     { handler: require('../../../') }
   ],
   moment: {
-    plugins: [
-      'moment-strftime',
-      'moment-fquarter'
-    ]
+    defaultTimezone: 'Asia/Tehran'
   }
 }
