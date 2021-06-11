@@ -121,6 +121,13 @@ export default {
 }
 ```
 
+### dialect
+
+You can set dialect option. [see more](https://github.com/jalaali/moment-jalaali#options)  
+
+default value : `persian-modern`  
+Possible values: `persian-modern`, `persian`, `false`
+
 ### Plugins
 
 You can import plugins to moment. See a list of [plugins](https://momentjs.com/docs/#/plugins/)
